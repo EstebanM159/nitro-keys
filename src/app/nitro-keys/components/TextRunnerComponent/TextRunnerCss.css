@@ -1,0 +1,24 @@
+@reference "tailwindcss";
+@reference "tailwind-animations";
+.error-animation {
+  @apply text-red-500 bg-red-500/30 animate-tada;
+}
+.cursor-bar {
+  @apply relative;
+}
+
+.cursor-bar::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 2px;
+  height: 95%;
+  background-color: #ffff00;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

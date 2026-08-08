@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-
-@import "tailwindcss";
+/* @import url('../public/fonts/SpaceGrotesk-Medium.ttf'); */
+@import 'tailwindcss';
+@import 'tailwind-animations';
+@theme {
+  --color-primary: #ffff00;
+  --color-secondary: #39ff14;
+  --color-accent: #ff4d00;
+  --color-background-light: #0f0f00;
+  --color-background-dark: #050500;
+  --font-space: 'Space Grotesk';
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: bold;
+  src: url('../public/fonts/SpaceGrotesk-Medium.ttf');
+}
