@@ -13,6 +13,8 @@ export class HomePage implements OnInit {
   textService = inject(TextsService);
 
   ngOnInit(): void {
-    this.textService.getRandomText();
+    this.textService.getRandomText().subscribe((text) => {
+      console.log(text);
+    });
   }
 }

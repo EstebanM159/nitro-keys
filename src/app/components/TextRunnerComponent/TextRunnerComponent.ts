@@ -17,7 +17,7 @@ export class TextRunnerComponent {
   words = computed(() => {
     const result: { chars: { char: string; index: number }[] }[] = [];
     let currentWord: { char: string; index: number }[] = [];
-    const charsArray = this.text().body.split('');
+    const charsArray = this.text()?.body?.split('') ?? [];
     charsArray.forEach((char, index) => {
       currentWord.push({ char, index });
       if (char === ' ') {
@@ -35,8 +35,8 @@ export class TextRunnerComponent {
   text = computed(() => this.stopwatchService.text());
   currentCharacter = signal(0);
   errors = signal<number | null>(null);
-  nextChar = computed<string>(() => this.text().body[this.currentCharacter()]);
-  endTheGame = computed(() => this.currentCharacter() === this.text().body.length);
+  nextChar = computed<string>(() => this.text()!.body[this.currentCharacter()]);
+  endTheGame = computed(() => this.currentCharacter() === this.text()!.body.length);
   progressBarOutput = output<number>();
 
   @HostListener('window:keydown', ['$event'])

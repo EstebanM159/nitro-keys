@@ -15,7 +15,7 @@ import { CardComponent } from '../../components/card.component/card.component';
 export class RacePage {
   stopwatchService = inject(StopWatchService);
   currentCharacterToBar = signal(0);
-  totalCharacter = this.stopwatchService.text().characterCount;
+  totalCharacter = this.stopwatchService.text()!.characterCount;
   barWidthStyle = computed(() => {
     const widthP = Math.min(
       (this.currentCharacterToBar() / this.totalCharacter) * 100,
