@@ -10,7 +10,7 @@ const raceRoutes: Routes = [
     component: RacesLayout,
     children: [
       {
-        path: 'race',
+        path: '',
         component: RacePage,
       },
       { path: 'finishRace', component: FinishRace },

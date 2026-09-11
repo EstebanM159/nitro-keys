@@ -10,6 +10,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeLayout,
+    // redireccion a races
     loadChildren: () => import('../app/nitro-keys/routes/races.routes'),
   },
 ];

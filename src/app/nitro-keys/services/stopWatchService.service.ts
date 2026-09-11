@@ -21,13 +21,13 @@ export class StopWatchService {
   stopwatch = signal(0);
   characterPerMinute = signal<number>(0);
   errorCount = signal<number>(0);
+  correctCharacters = signal<number>(0);
   time = signal(0);
   text = linkedSignal<string>(
     () => TEXTOS_MECANOGRAFIA[Math.floor(Math.random() * TEXTOS_MECANOGRAFIA.length)],
   );
   // text = signal<string>('la toma ha sido completada');
-  accuracy = signal<string>('0');
-  totalCharacters = linkedSignal(() => this.text().split(' ').join('').length);
+  accuracy = signal<string>('100.0%');
   start() {
     if (!this.isRunning()) {
       this.isRunning.set(true);
@@ -47,15 +47,33 @@ export class StopWatchService {
     this.pause();
     this.stopwatch.set(0);
     this.errorCount.set(0);
+    this.correctCharacters.set(0);
+    this.accuracy.set('100.0%');
+    this.characterPerMinute.set(0);
+  }
+
+  newText() {
+    const randomText = TEXTOS_MECANOGRAFIA[Math.floor(Math.random() * TEXTOS_MECANOGRAFIA.length)];
+    this.text.set(randomText);
+  }
+
+  registerCorrectKeystroke() {
+    this.correctCharacters.update((c) => c + 1);
+    this.calculateStadistics();
+  }
+
+  registerError() {
+    this.errorCount.update((c) => c + 1);
+    this.calculateStadistics();
   }
   calculateStadistics() {
-    // CPM
-    const timeInMinutes = this.time() / 60000;
-    this.characterPerMinute.set(this.totalCharacters() / timeInMinutes);
-    // Accuracy
-    const charactersWithSpace = this.text().length;
-    const charactersWhitSpaceAndErrors = charactersWithSpace + this.errorCount();
-    const currentAccuracy = (charactersWithSpace / charactersWhitSpaceAndErrors) * 100;
+    const elapsedMs = this.isRunning() ? this.stopwatch() : this.time();
+    if (elapsedMs <= 0) return;
+    const timeInMinutes = elapsedMs / 60000;
+    this.characterPerMinute.set(this.correctCharacters() / timeInMinutes);
+    const totalKeystrokes = this.correctCharacters() + this.errorCount();
+    const currentAccuracy =
+      totalKeystrokes > 0 ? (this.correctCharacters() / totalKeystrokes) * 100 : 100;
     this.accuracy.set(`${currentAccuracy.toFixed(1)}%`);
   }
 }

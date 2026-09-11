@@ -1,6 +1,6 @@
 import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { TextRunnerComponent } from '../../components/TextRunnerComponent/TextRunnerComponent';
-import { StopWatchService } from '../../services/stopWatchService';
+import { StopWatchService } from '../../services/stopWatchService.service';
 import { DatePipe } from '@angular/common';
 import { CardComponent } from '../../components/card.component/card.component';
 

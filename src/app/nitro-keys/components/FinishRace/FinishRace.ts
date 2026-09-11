@@ -1,12 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { DatePipe, DecimalPipe } from '@angular/common';
+import { StopWatchService } from '../../services/stopWatchService.service';
 
 @Component({
   selector: 'app-finish-race',
-  imports: [],
+  imports: [DatePipe, DecimalPipe],
   templateUrl: './FinishRace.html',
 })
-export class FinishRace implements OnInit {
-  ngOnInit(): void {
-    console.log('Me genere');
+export class FinishRace {
+  stopwatchService = inject(StopWatchService);
+  private router = inject(Router);
+
+  retryRace() {
+    this.stopwatchService.reset();
+    this.stopwatchService.newText();
+    this.router.navigate(['/races']);
+  }
+
+  backToLobby() {
+    this.stopwatchService.reset();
+    this.router.navigate(['/races/lobby']);
   }
 }
