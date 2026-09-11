@@ -1,7 +1,5 @@
 import { Component, computed, HostListener, inject, OnInit, output, signal } from '@angular/core';
-import { Subscription, timer } from 'rxjs';
 import { StopWatchService } from '../../services/stopWatchService.service';
-import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 @Component({
   selector: 'text-runner-component',
