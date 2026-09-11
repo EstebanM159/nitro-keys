@@ -104,7 +104,9 @@
           </div>
           <span class="text-white font-bold text-xs">TÚ (NitroX)</span>
         </div>
-        <span class="text-primary font-black italic">142 PPM</span>
+        <span class="text-primary font-black italic"
+          >{{ stopwatchService.characterPerMinute() | number: '1.0-0' }} PPM</span
+        >
       </div>
       <div
         class="flex items-center justify-between bg-white/5 p-3 rounded-lg border border-transparent hover:border-white/10 transition-colors"
