@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeLayout } from './nitro-keys/layout/HomeLayout/HomeLayout';
+import { HomeLayout } from './layout/HomeLayout/HomeLayout';
 
 @Component({
   selector: 'app-root',

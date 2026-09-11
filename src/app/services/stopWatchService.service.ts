@@ -1,6 +1,6 @@
 import { computed, Injectable, linkedSignal, signal } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
-import TEXTOS_MECANOGRAFIA from '../../../../public/assets/texts.json';
+import TEXTOS_MECANOGRAFIA from '../../../public/assets/texts.json';
 import type { TextInterface } from '../interfaces/Text.interface';
 // const TEXTOS_MECANOGRAFIA: string[] = [
 //   'El código fluye a través de las venas de la ciudad mientras los ciudadanos duermen bajo el resplandor de los carteles publicitarios. No hay espacio para el error en esta nueva era digital donde cada pulsación de tecla puede significar la diferencia entre la libertad absoluta o el olvido.',

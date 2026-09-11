@@ -1,16 +1,16 @@
 import { Routes } from '@angular/router';
-import { HomeLayout } from './nitro-keys/layout/HomeLayout/HomeLayout';
-import { HomePage } from './nitro-keys/pages/HomePage/HomePage';
+import { HomeLayout } from './layout/HomeLayout/HomeLayout';
+import { HomePage } from './pages/HomePage/HomePage';
 
 export const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('../app/nitro-keys/routes/auth.routes'),
+    loadChildren: () => import('../app/routes/auth.routes'),
   },
   {
     path: '',
     component: HomeLayout,
     // redireccion a races
-    loadChildren: () => import('../app/nitro-keys/routes/races.routes'),
+    loadChildren: () => import('../app/routes/races.routes'),
   },
 ];
