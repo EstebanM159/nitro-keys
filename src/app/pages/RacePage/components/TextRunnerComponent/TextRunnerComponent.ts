@@ -1,6 +1,6 @@
 import { Component, computed, HostListener, inject, OnInit, output, signal } from '@angular/core';
-import { StopWatchService } from '../../services/stopWatchService.service';
 import { Router } from '@angular/router';
+import { StopWatchService } from '@services/stopWatchService.service';
 @Component({
   selector: 'text-runner-component',
   templateUrl: './TextRunnerComponent.html',
@@ -66,6 +66,7 @@ export class TextRunnerComponent {
       this.stopwatchService.registerCorrectKeystroke();
       this.progressBarOutput.emit(this.currentCharacter());
     } else if (e.key !== 'Shift') {
+      // el usuario no podra escribir mas de 3 caracteres erroneos
       this.errors.set(this.currentCharacter());
       this.stopwatchService.registerError();
     }
@@ -83,7 +84,7 @@ export class TextRunnerComponent {
 
   reinitialize() {
     this.stopwatchService.reset();
-    this.stopwatchService.newText();
+    // this.stopwatchService.newText();
     this.currentCharacter.set(0);
     this.errors.set(null);
     this.progressBarOutput.emit(0);

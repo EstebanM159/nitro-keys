@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, linkedSignal, signal } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
-import type { TextInterface } from '../interfaces/Text.interface';
+import type { TextInterface, Difficult } from '../interfaces/Text.interface';
 import { TextsService } from './texts.service';
 import type { RaceInterface } from '../interfaces/Race.interface';
 
@@ -24,6 +24,7 @@ export class StopWatchService {
     body: '',
     characterCount: 0,
     characterCountWithoutSpaces: 0,
+    difficult: 'easy',
   });
   // ! Esto se arregla con rxResource
   constructor() {

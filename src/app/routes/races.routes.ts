@@ -4,9 +4,10 @@ import { RacePage } from '../pages/RacePage/RacePage';
 import { LobbyPage } from '../pages/LobbyPage/LobbyPage';
 import { FinishRace } from '../components/FinishRace/FinishRace';
 import { RacesLayout } from '../layout/RacesLayout/RacesLayout';
+import { BestPlayersPageComponent } from '../pages/BestPlayersPage/BestPlayersPage.component';
 const raceRoutes: Routes = [
   {
-    path: 'races',
+    path: 'race',
     component: RacesLayout,
     children: [
       {
@@ -19,6 +20,10 @@ const raceRoutes: Routes = [
     ],
   },
   { path: 'home', component: HomePage },
+  {
+    path: 'best-runners',
+    component: BestPlayersPageComponent,
+  },
   {
     path: '**',
     redirectTo: 'home',

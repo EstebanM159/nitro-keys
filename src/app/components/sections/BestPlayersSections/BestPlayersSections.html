@@ -1,0 +1,26 @@
+<section class="scroll-section flex flex-col w-full items-center">
+  <div class="w-full max-w-3xl">
+    <div class="flex items-end justify-between mb-8 border-b border-primary/30 pb-4">
+      <h2 class="text-3xl font-black tracking-widest uppercase flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-4xl">leaderboard</span>
+        MEJORES CORREDORES
+      </h2>
+      <a
+        class="text-primary text-[10px] font-bold hover:underline uppercase tracking-widest mb-1"
+        href="/best-runners"
+        >VER_TABLA_COMPLETA</a
+      >
+    </div>
+    <!-- list-best-players-box -->
+    <div class="space-y-4">
+      <!-- card-stats-player -->
+      @if (rankingPlayers.isLoading()) {
+        <h1>Cargando</h1>
+      } @else {
+        @for (player of rankingPlayers.data()?.slice(0, 4); track player.id) {
+          <item-list-best-players [playerInfo]="player" [index]="$index + 1" />
+        }
+      }
+    </div>
+  </div>
+</section>
