@@ -1,64 +1,61 @@
 <!-- El borde amarillo debe ser condicional asi es primero -->
 
 <div
-  class="order-1 md:order-2 bg-[#1e201b] border-2 border-[#e2ec00] p-6 relative flex flex-col justify-between h-[390px] shadow-[0_0_24px_rgba(226,236,0,0.2)]"
+  [class.h-[400px]]="index() === 1"
+  [class.border-primary]="index() === 1"
+  class="bg-[#1e201b] border-2 p-6 relative flex flex-col justify-between h-96 shadow-[0_0_24px_rgba(226,236,0,0.2)]"
 >
   <!-- ETIQUETA CORONA NEÓN -->
-  <div
-    class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-0.5 bg-[#e2ec00] text-[#646900] font-['JetBrains_Mono'] text-[12px] leading-[16px] tracking-[0.1em] font-bold font-black uppercase tracking-widest flex items-center gap-1 shadow-lg"
-  >
-    <span class="material-symbols-outlined text-[16px]">military_tech</span> CAMPEÓN SUPREMO
-  </div>
-  <div
-    class="absolute top-2 right-2 text-[#e2ec00]/20 font-['Barlow_Condensed'] text-[64px] font-black italic"
-  >
-    01
+  @if (index() === 1) {
+    <div
+      class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-0.5 bg-primary text-[#646900] text-[12px] leading-[16px] tracking-[0.1em] font-bold font-black uppercase tracking-widest flex items-center gap-1 shadow-lg"
+    >
+      <span class="material-symbols-outlined text-[16px]">military_tech</span> CAMPEÓN SUPREMO
+    </div>
+  }
+
+  <div class="absolute top-2 right-2 text-primary/20 text-[64px] font-black italic">
+    {{ index() }}
   </div>
   <div class="pt-1">
     <div class="flex items-center gap-1 mb-2">
-      <span class="font-['Barlow_Condensed'] text-[60px] italic font-black text-[#e2ec00]">#1</span>
+      <span class="text-[60px] italic font-black text-primary">#{{ index() }}</span>
       <span
-        class="w-9 h-9 bg-[#e2ec00] text-[#646900] flex items-center justify-center font-['JetBrains_Mono'] text-[22px] leading-[26px] tracking-[0.03em] font-bold font-black"
-        >AR</span
+        class="size-9 ml-5 bg-primary text-[#646900] flex items-center justify-center text-[22px] leading-[26px] tracking-[0.03em] font-bold font-black"
+        >{{ playerInfo()?.country }}</span
       >
     </div>
-    <h2
-      class="font-['Barlow_Condensed'] text-[36px] uppercase font-black text-[#ffffff] tracking-wide leading-none"
-    >
-      SYNTHRACER99
+    <h2 class="text-[36px] uppercase font-black text-[#ffffff] tracking-wide leading-none">
+      {{ playerInfo()?.username }}
     </h2>
     <div
-      class="font-['JetBrains_Mono'] text-[10px] leading-[14px] tracking-[0.14em] font-medium text-[#e2ec00] uppercase tracking-widest mt-1 font-bold"
+      class="text-[10px] leading-[14px] tracking-[0.14em] font-medium text-primary uppercase tracking-widest mt-1 font-bold"
     >
-      LEVEL: 61 OVERCLOCKER SUPREMO
+      LEVEL: {{ playerInfo()?.level }} OVERCLOCKER SUPREMO
     </div>
     <div
-      class="mt-4 inline-block px-2 py-1 bg-[#292b25] border border-[#e2ec00]/40 text-[#ffffff] font-['JetBrains_Mono'] text-[12px] leading-[16px] tracking-[0.1em] font-bold font-bold"
+      class="mt-4 inline-block px-2 py-1 bg-[#292b25] border border-primary/40 text-[#ffffff] text-[12px] leading-[16px] tracking-[0.1em] font-bold font-bold"
     >
       VEHÍCULO: VOLT-STRIKER X3
     </div>
   </div>
-  <div class="border-t border-[#e2ec00]/30 pt-2 flex items-end justify-between bg-[#1a1c17]/50 p-2">
+  <div class="border-t border-primary/30 pt-2 flex items-end justify-between bg-[#1a1c17]/50 p-2">
     <div>
       <div
-        class="font-['JetBrains_Mono'] text-[10px] leading-[14px] tracking-[0.14em] font-medium text-[#e2ec00] uppercase font-bold tracking-wider"
+        class="text-[10px] leading-3.5 tracking-[0.14em] font-medium text-primary uppercase font-bold"
       >
         RÉCORD MUNDIAL
       </div>
-      <div class="font-['Barlow_Condensed'] text-[46px] font-black text-[#e2ec00] leading-none">
-        501
-        <span class="text-[14px] leading-[20px] tracking-[0.02em] font-['JetBrains_Mono']"
-          >CPM</span
-        >
+      <div class="text-[46px] font-black text-primary leading-none">
+        {{ playerInfo()?.cpm }}
+        <span class="text-[14px] leading-5 tracking-[0.02em]">CPM</span>
       </div>
     </div>
     <div class="text-right">
-      <div
-        class="font-['JetBrains_Mono'] text-[10px] leading-[14px] tracking-[0.14em] font-medium text-[#00fe66] uppercase font-bold"
-      >
+      <div class="text-[10px] leading-3.5 tracking-[0.14em] font-medium text-secondary uppercase">
         PRECISIÓN IMPERIAL
       </div>
-      <div class="font-['JetBrains_Mono'] text-[26px] font-black text-[#00fe66]">99.1%</div>
+      <div class="text-[26px] font-black text-secondary">{{ playerInfo()?.accuracy }}%</div>
     </div>
   </div>
 </div>

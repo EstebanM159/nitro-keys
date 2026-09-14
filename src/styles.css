@@ -3,8 +3,8 @@
 @import 'tailwindcss';
 @import 'tailwind-animations';
 @theme {
-  --color-primary: #ffff00;
-  --color-secondary: #39ff14;
+  --color-primary: #e2ec00;
+  --color-secondary: #00fe66;
   --color-accent: #ff4d00;
   --color-background-light: #0f0f00;
   --color-background-dark: #050500;

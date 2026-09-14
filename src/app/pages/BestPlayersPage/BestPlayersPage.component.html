@@ -1,27 +1,33 @@
-<h1
-  class="font-display-hero text-display-hero uppercase italic tracking-tight font-black text-primary"
->
-  MEJORES CORREDORES <span class="text-primary-container">// RED GLOBAL</span>
-</h1>
+<div class="flex justify-between items-center py-10 px-10">
+  <h1 class="text-3xl text-display-hero uppercase tracking-tight font-black text-primary">
+    MEJORES CORREDORES <span class="text-secondary">// RED GLOBAL</span>
+  </h1>
 
-<button
-  class="self-start lg:self-end flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-primary font-label-code text-label-code uppercase tracking-wider transition-all duration-200"
-  onclick="
-    document.getElementById('user-rank-row').scrollIntoView({ behavior: 'smooth', block: 'center' })
-  "
->
-  <span class="material-symbols-outlined text-[16px]">my_location</span>
-  IR A MI POSICIÓN [#88]
-</button>
-
-<card-bo3-players></card-bo3-players>
-
+  <button
+    class="bg-primary/10 flex items-center"
+    onclick="
+      document
+        .getElementById('user-rank-row')
+        .scrollIntoView({ behavior: 'smooth', block: 'center' })
+    "
+  >
+    <span class="material-symbols-outlined text-sm">my_location</span>
+    IR A MI POSICIÓN [#88]
+  </button>
+</div>
 <div class="space-y-4">
   @if (rankingPlayers.isLoading()) {
     <h1>Cargando</h1>
   } @else {
-    @for (player of rankingPlayers.data()?.slice(0, 4); track player.id) {
-      <item-list-best-players [playerInfo]="player" [index]="$index + 1" />
-    }
+    <div class="flex justify-center gap-4 items-center px-10">
+      @for (player of podiumOrder(); track player.position) {
+        <card-bo3-players [playerInfo]="player.player" [index]="player.position" />
+      }
+    </div>
+    <div class="flex flex-col px-10">
+      @for (player of rankingPlayers.data()?.slice(3, 10); track player.id) {
+        <item-list-best-players [playerInfo]="player" [index]="$index + 4" />
+      }
+    </div>
   }
 </div>
