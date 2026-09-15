@@ -1,6 +1,7 @@
 import { Component, computed, HostListener, inject, OnInit, output, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { StopWatchService } from '@services/stopWatchService.service';
+import { ReinitializeButtonComponent } from 'src/app/components/reinitialize-button/reinitialize-button.component';
 @Component({
   selector: 'text-runner-component',
   templateUrl: './TextRunnerComponent.html',
@@ -8,6 +9,7 @@ import { StopWatchService } from '@services/stopWatchService.service';
     class: 'w-2/3 ',
   },
   styleUrl: './TextRunnerCss.css',
+  imports: [ReinitializeButtonComponent],
 })
 export class TextRunnerComponent {
   private router = inject(Router);
@@ -74,7 +76,7 @@ export class TextRunnerComponent {
     if (this.endTheGame()) {
       this.stopwatchService.pause();
       //? no deberia navegar a una ruta sino activar un componente finishRace
-      this.router.navigate(['/races/finishRace']);
+      this.router.navigate(['/race/finishRace']);
     }
   }
 

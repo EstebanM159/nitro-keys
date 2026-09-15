@@ -15,11 +15,11 @@ export class FinishRace {
   retryRace() {
     this.stopwatchService.reset();
     this.stopwatchService.newText();
-    this.router.navigate(['/races']);
+    this.router.navigate(['/race']);
   }
 
   backToLobby() {
     this.stopwatchService.reset();
-    this.router.navigate(['/races/lobby']);
+    this.router.navigate(['/race/lobby']);
   }
 }
