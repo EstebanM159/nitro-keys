@@ -17,6 +17,7 @@ export class QuerysService {
 
   async getRankingPlayers(): Promise<PlayerInterface[]> {
     const response = await firstValueFrom(this.http.get<PlayersResponse>(this.jsonPlayersUrl));
-    return response.players.sort((player, player2) => player2.cpm - player.cpm);
+    const players: PlayerInterface[] = response.players;
+    return players.sort((player, player2) => player2.cpm - player.cpm);
   }
 }

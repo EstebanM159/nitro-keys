@@ -13,8 +13,4 @@ export class BestPlayersSections {
   get rankingPlayers() {
     return this.querysService.rankingPlayers;
   }
-  // importar aca players como una query
-  constructor() {
-    console.log(this.rankingPlayers.data());
-  }
 }
