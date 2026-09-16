@@ -8,7 +8,7 @@ import { CardBo3PlayersComponent } from './components/card-bo3-players/card-bo3-
   imports: [ItemListBestPlayersComponent, CardBo3PlayersComponent],
   templateUrl: './BestPlayersPage.component.html',
 })
-export class BestPlayersPageComponent {
+export default class BestPlayersPageComponent {
   queryService = inject(QuerysService);
   podiumOrder = computed(() => {
     const players = this.rankingPlayers.data();

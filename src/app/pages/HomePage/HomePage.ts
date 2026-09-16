@@ -8,4 +8,4 @@ import { BestPlayersSections } from '../../components/sections/BestPlayersSectio
   imports: [HeroSection, BestPlayersSections, MultiplayerSection],
   templateUrl: './HomePage.html',
 })
-export class HomePage {}
+export default class HomePage {}

@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { RacePage } from '../pages/RacePage/RacePage';
-import { LobbyPage } from '../pages/LobbyPage/LobbyPage';
+// import { LobbyPage } from '../pages/LobbyPage/LobbyPage';
 import { FinishRace } from '../components/FinishRace/FinishRace';
 import { RacesLayout } from '../layout/RacesLayout/RacesLayout';
-import { BestPlayersPageComponent } from '../pages/BestPlayersPage/BestPlayersPage.component';
+
 const raceRoutes: Routes = [
   {
     path: 'race',
@@ -12,17 +10,21 @@ const raceRoutes: Routes = [
     children: [
       {
         path: '',
-        component: RacePage,
+        loadComponent: () => import('../pages/RacePage/RacePage'),
       },
       { path: 'finishRace', component: FinishRace },
-      { path: 'lobby', component: LobbyPage },
+      // { path: 'lobby', component: LobbyPage },
       { path: '**', redirectTo: 'race' },
     ],
   },
-  { path: 'home', component: HomePage },
+  {
+    path: 'practice',
+    loadComponent: () => import('../pages/PracticeLobbyPage/PracticeLobbyPage.component'),
+  },
+  { path: 'home', loadComponent: () => import('../pages/HomePage/HomePage') },
   {
     path: 'best-runners',
-    component: BestPlayersPageComponent,
+    loadComponent: () => import('../pages/BestPlayersPage/BestPlayersPage.component'),
   },
   {
     path: '**',

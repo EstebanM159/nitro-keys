@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { CardComponent } from './components/card.component/card.component';
 import { TextRunnerComponent } from './components/TextRunnerComponent/TextRunnerComponent';
 import { StopWatchService } from '@services/stopWatchService.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'race-page',
@@ -12,7 +13,9 @@ import { StopWatchService } from '@services/stopWatchService.service';
     class: 'bg-background-light w-full flex flex-col items-center py-10',
   },
 })
-export class RacePage {
+export default class RacePage {
+  private router = inject(Router);
+
   stopwatchService = inject(StopWatchService);
   currentCharacterToBar = signal(0);
   totalCharacter = this.stopwatchService.text()!.characterCount;
@@ -24,4 +27,9 @@ export class RacePage {
 
     return `width: ${widthP}%`;
   });
+  isGameOver(event: boolean) {
+    if (event) {
+      this.router.navigate(['/race/finishRace']);
+    }
+  }
 }

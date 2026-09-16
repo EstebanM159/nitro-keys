@@ -11,8 +11,8 @@ import { ReinitializeButtonComponent } from 'src/app/components/reinitialize-but
   styleUrl: './TextRunnerCss.css',
   imports: [ReinitializeButtonComponent],
 })
+// ? que pasa con lo que venia escribiendo si a alguien se le cae?
 export class TextRunnerComponent {
-  private router = inject(Router);
   stopwatchService = inject(StopWatchService);
   words = computed(() => {
     const result: { chars: { char: string; index: number }[] }[] = [];
@@ -35,13 +35,14 @@ export class TextRunnerComponent {
   text = computed(() => this.stopwatchService.text());
   currentCharacter = signal(0);
   errors = signal<number | null>(null);
+  endTheGame = output<boolean>();
   nextChar = computed<string>(() => this.text()!.body[this.currentCharacter()]);
-  endTheGame = computed(() => this.currentCharacter() === this.text()!.body.length);
+  endText = computed(() => this.currentCharacter() === this.text()!.body.length);
   progressBarOutput = output<number>();
 
   @HostListener('window:keydown', ['$event'])
   onKey(e: KeyboardEvent) {
-    if (this.endTheGame()) return;
+    if (this.endText()) return;
     if (!this.isValidKey(e.key)) return;
 
     // Evita el comportamiento nativo del navegador para estas teclas
@@ -73,10 +74,10 @@ export class TextRunnerComponent {
       this.stopwatchService.registerError();
     }
 
-    if (this.endTheGame()) {
+    if (this.endText()) {
       this.stopwatchService.pause();
       //? no deberia navegar a una ruta sino activar un componente finishRace
-      this.router.navigate(['/race/finishRace']);
+      this.endTheGame.emit(true);
     }
   }
 

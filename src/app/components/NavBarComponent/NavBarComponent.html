@@ -17,14 +17,17 @@
   </a>
   <nav class="hidden lg:flex items-center gap-6">
     <a
-      class="text-white/50 hover:text-primary transition-colors text-sm font-bold tracking-widest uppercase"
-      href="#"
-      routerLink="/race"
+      class="hover:text-white text-white/50 text-sm font-bold tracking-widest uppercase"
+      routerLink="/practice"
+      routerLinkActive="!text-primary "
+      [routerLinkActiveOptions]="{ exact: true }"
       >PRACTICAR</a
     >
     <a
-      class="text-white/50 hover:text-primary transition-colors text-sm font-bold tracking-widest uppercase"
+      class="hover:text-white text-white/50 transition-colors text-sm font-bold tracking-widest uppercase"
       routerLink="/best-runners"
+      routerLinkActive="!text-primary "
+      [routerLinkActiveOptions]="{ exact: true }"
       >Tabla de jugadores</a
     >
   </nav>
