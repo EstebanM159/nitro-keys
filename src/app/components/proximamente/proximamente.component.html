@@ -1,0 +1,49 @@
+<section
+  class="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-background-dark px-6 py-16 font-space text-white sm:px-10"
+  aria-labelledby="coming-soon-title"
+>
+  <div
+    class="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(226,236,0,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(226,236,0,0.06)_1px,transparent_1px)] [background-size:3rem_3rem]"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-primary/10 shadow-[0_0_40px_10px_rgba(226,236,0,0.08)]"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 flex w-full max-w-2xl flex-col items-center text-center">
+    <div
+      class="mb-6 border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary"
+    >
+      // Sector clasificado // En construcción
+    </div>
+
+    <h1
+      id="coming-soon-title"
+      class="text-4xl font-black uppercase italic leading-none tracking-tight text-white drop-shadow-[0_0_16px_rgba(226,236,0,0.35)] sm:text-6xl"
+    >
+      Próximamente
+    </h1>
+    <p class="mt-6 max-w-lg text-sm leading-6 text-white/65 sm:text-base">
+      Este módulo del sistema se encuentra actualmente en desarrollo. Los protocolos de acceso se
+      liberarán en la próxima actualización de NitroKeys.
+    </p>
+
+    <div class="mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+      <a
+        routerLink="/practice"
+        class="inline-flex min-h-12 items-center justify-center gap-2 bg-primary px-6 py-3 text-center text-xs font-black uppercase tracking-wide text-background-dark shadow-[0_0_18px_rgba(226,236,0,0.28)] transition-all hover:bg-white hover:shadow-[0_0_24px_rgba(226,236,0,0.45)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark"
+      >
+        <span aria-hidden="true">⌨</span>
+        Modo práctica (carrera)
+      </a>
+      <a
+        routerLink="/home"
+        class="inline-flex min-h-12 items-center justify-center gap-2 border border-white/10 bg-white/5 px-6 py-3 text-center text-xs font-bold uppercase tracking-wide text-white/70 transition-colors hover:border-primary/40 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark"
+      >
+        <span aria-hidden="true">←</span>
+        Volver al centro de mando
+      </a>
+    </div>
+  </div>
+</section>

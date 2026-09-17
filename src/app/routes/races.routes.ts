@@ -19,12 +19,12 @@ const raceRoutes: Routes = [
   },
   {
     path: 'practice',
-    loadComponent: () => import('../pages/PracticeLobbyPage/PracticeLobbyPage.component'),
+    loadComponent: () => import('../components/proximamente/proximamente.component'),
   },
   { path: 'home', loadComponent: () => import('../pages/HomePage/HomePage') },
   {
     path: 'best-runners',
-    loadComponent: () => import('../pages/BestPlayersPage/BestPlayersPage.component'),
+    loadComponent: () => import('../components/proximamente/proximamente.component'),
   },
   {
     path: '**',
