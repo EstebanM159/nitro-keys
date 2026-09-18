@@ -19,13 +19,7 @@ export class StopWatchService {
   // Characters
   errorCount = signal<number>(0);
   correctCharacters = signal<number>(0);
-  text = signal<TextInterface>({
-    id: 0,
-    body: '',
-    characterCount: 0,
-    characterCountWithoutSpaces: 0,
-    difficult: 'easy',
-  });
+  text = signal<TextInterface | null>(null);
   // ! Esto se arregla con rxResource
   constructor() {
     this.newText();
@@ -41,6 +35,7 @@ export class StopWatchService {
       });
     }
   }
+
   pause() {
     this.isRunning.set(false);
     this.time.set(this.stopwatch());
