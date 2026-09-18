@@ -18,7 +18,7 @@ export default class RacePage {
 
   stopwatchService = inject(StopWatchService);
   currentCharacterToBar = signal(0);
-  totalCharacter = this.stopwatchService.text()!.characterCount;
+
   barWidthStyle = computed(() => {
     const text = this.stopwatchService.text();
     if (!text) return 'width: 0%';
