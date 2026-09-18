@@ -20,11 +20,13 @@ export default class RacePage {
   currentCharacterToBar = signal(0);
   totalCharacter = this.stopwatchService.text()!.characterCount;
   barWidthStyle = computed(() => {
+    const text = this.stopwatchService.text();
+    if (!text) return 'width: 0%';
+
     const widthP = Math.min(
-      (this.currentCharacterToBar() / this.totalCharacter) * 100,
+      (this.currentCharacterToBar() / text.characterCount) * 100,
       100,
     ).toFixed(0);
-
     return `width: ${widthP}%`;
   });
   isGameOver(event: boolean) {
