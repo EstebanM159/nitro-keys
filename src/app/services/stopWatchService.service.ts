@@ -49,13 +49,15 @@ export class StopWatchService {
     this.accuracy.set('100.0%');
     this.characterPerMinute.set(0);
   }
-
+  // da el nuevo texto
   newText() {
     this.textsService.getRandomText().subscribe((text) => {
       this.text.set(text);
     });
   }
-
+  newTextByDifficulty(difficulty: Difficult) {
+    this.textsService.getTextByDifficulty(difficulty).subscribe((text) => this.text.set(text));
+  }
   registerCorrectKeystroke() {
     this.correctCharacters.update((c) => c + 1);
     this.calculateStadistics();

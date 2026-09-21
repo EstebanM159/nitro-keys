@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { StopWatchService } from '@services/stopWatchService.service';
+import { TextRunnerService } from '@services/textRunner.service';
 
 @Component({
   selector: 'reinitialize-button',
@@ -7,5 +8,5 @@ import { StopWatchService } from '@services/stopWatchService.service';
   templateUrl: './reinitialize-button.component.html',
 })
 export class ReinitializeButtonComponent {
-  stopwatchService = inject(StopWatchService);
+  textRunnerService = inject(TextRunnerService);
 }

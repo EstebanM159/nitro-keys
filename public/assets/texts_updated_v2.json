@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "body": "La mañana empieza tranquila y las calles se llenan de personas que van al trabajo o a estudiar Cada día trae nuevas tareas y pequeños momentos que hacen que la ciudad siga avanzando",
+    "characterCount": 181,
+    "characterCountWithoutSpaces": 149,
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "body": "Pedro sale temprano de casa y camina hasta la estación Mientras espera el tren mira los árboles las tiendas y a la gente que pasa Cuando llega su turno sube y busca un asiento cerca de la ventana",
+    "characterCount": 195,
+    "characterCountWithoutSpaces": 158,
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "body": "En la plaza del barrio los niños juegan mientras sus familias conversan Los perros corren por el pasto y algunas personas leen bajo los árboles Al caer la tarde todos vuelven poco a poco a sus casas",
+    "characterCount": 198,
+    "characterCountWithoutSpaces": 162,
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "body": "Una bicicleta queda junto a la puerta de una tienda durante toda la tarde Nadie sabe quién la dejó allí pero nadie parece preocupado Cuando llega la noche su dueño regresa y se la lleva tranquilamente",
+    "characterCount": 200,
+    "characterCountWithoutSpaces": 165,
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "body": "Después de terminar sus tareas Martina prepara la mochila para el día siguiente Ordena sus libros guarda una botella de agua y revisa que todo esté listo Luego apaga la luz y se prepara para dormir",
+    "characterCount": 197,
+    "characterCountWithoutSpaces": 162,
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "body": "El servidor recibe una nueva actualización y comienza a procesar las solicitudes con mayor estabilidad El equipo revisa los registros controla el tráfico y comprueba que los usuarios puedan iniciar sesión sin problemas",
+    "characterCount": 218,
+    "characterCountWithoutSpaces": 186,
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "body": "La aplicación muestra el estado de cada tarea en tiempo real Cuando una solicitud falla el sistema registra el problema intenta nuevamente la operación y avisa al usuario El objetivo es mantener un flujo constante durante todo el proceso",
+    "characterCount": 237,
+    "characterCountWithoutSpaces": 199,
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "body": "Antes de publicar una nueva versión el equipo ejecuta varias pruebas y revisa el rendimiento También comprueba la API limpia datos antiguos y valida las respuestas del servidor Si todo funciona correctamente el despliegue puede comenzar",
+    "characterCount": 236,
+    "characterCountWithoutSpaces": 201,
+    "difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "body": "El panel permite filtrar usuarios ordenar resultados y consultar métricas Desde allí el administrador puede revisar sesiones activas detectar errores y observar la latencia del servicio durante los momentos de mayor tráfico",
+    "characterCount": 223,
+    "characterCountWithoutSpaces": 192,
+    "difficulty": "medium"
+  },
+  {
+    "id": 10,
+    "body": "La conexión parece estable pero el cliente informa pequeños cortes durante la descarga El monitor registra cambios en la latencia y algunos paquetes perdidos cada pocos minutos El equipo compara los datos para encontrar el origen del problema",
+    "characterCount": 242,
+    "characterCountWithoutSpaces": 205,
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "body": "El proceso build terminó correctamente ¿La aplicación puede iniciar sin errores? El equipo revisa la consola, comprueba el servidor y ejecuta una nueva prueba antes de continuar. Si aparece un fallo, detiene el despliegue.",
+    "characterCount": 222,
+    "characterCountWithoutSpaces": 189,
+    "difficulty": "hard"
+  },
+  {
+    "id": 12,
+    "body": "La función parseData recibe los datos del usuario ¿Qué ocurre si falta una propiedad? El sistema debe validar la respuesta, informar el problema y continuar solo cuando la estructura sea correcta. ¡No se debe ignorar ningún error!",
+    "characterCount": 230,
+    "characterCountWithoutSpaces": 194,
+    "difficulty": "hard"
+  },
+  {
+    "id": 13,
+    "body": "El endpoint GET /api/users/:id recibe una solicitud. ¿El parámetro tiene el formato esperado? Primero se valida la entrada, luego se consulta la base de datos y finalmente se devuelve la respuesta. ¡Cada paso debe quedar controlado!",
+    "characterCount": 232,
+    "characterCountWithoutSpaces": 197,
+    "difficulty": "hard"
+  },
+  {
+    "id": 14,
+    "body": "El servicio utiliza un bloqueo para proteger una sección crítica. ¿Qué pasa si dos procesos intentan modificar el mismo recurso? Primero se toma el bloqueo, después se actualiza el estado y al final se libera. ¡El orden importa!",
+    "characterCount": 228,
+    "characterCountWithoutSpaces": 191,
+    "difficulty": "hard"
+  },
+  {
+    "id": 15,
+    "body": "El componente reacciona cuando cambia el estado. ¿La interfaz debe mostrar una carga mientras llega la respuesta? Primero se verifica el estado, luego se procesa el resultado y finalmente se actualiza la vista. ¡Nunca se debe bloquear el hilo principal!",
+    "characterCount": 253,
+    "characterCountWithoutSpaces": 214,
+    "difficulty": "hard"
+  },
+  {
+    "id": 16,
+    "body": "Configura `0x7F` como máscara base y transforma `0x2A` mediante `&`, `|` y `^`. Luego verifica `buffer[0] === 0xFF` antes de ejecutar `parse()`. Si `crc32(data) !== expected`, aborta el flujo y registra `ERR_0xA1`.",
+    "characterCount": 214,
+    "characterCountWithoutSpaces": 183,
+    "difficulty": "extreme"
+  },
+  {
+    "id": 17,
+    "body": "Ejecuta `git reset --hard HEAD~1` después de validar `SHA256(commit) == 0x9F2A...C71D`. El parser espera `{ id: 0x1A, flags: 0x0F }`; cualquier byte fuera de rango dispara `throw new Error(\"INVALID_BYTE\")` y detiene el proceso.",
+    "characterCount": 227,
+    "characterCountWithoutSpaces": 195,
+    "difficulty": "extreme"
+  },
+  {
+    "id": 18,
+    "body": "El protocolo recibe `0x7E 0x01 0xFF 0x00` y calcula `CRC16(frame)`. Si `(flags & 0x04) !== 0`, aplica `decode(payload)` y valida `length === 0x20`; de lo contrario ejecuta `return -1`. Un solo bit incorrecto invalida la trama.",
+    "characterCount": 226,
+    "characterCountWithoutSpaces": 191,
+    "difficulty": "extreme"
+  },
+  {
+    "id": 19,
+    "body": "En `0x0040` comienza el bloque de memoria y `0x00FF` define el límite. Ejecuta `ptr += 0x04`, comprueba `(ptr & 0x03) == 0`, y aplica `memcpy(dst, src, 0x20)`. Si `checksum != 0xA7C3`, revierte la transacción y devuelve `0xDEAD`.",
+    "characterCount": 229,
+    "characterCountWithoutSpaces": 193,
+    "difficulty": "extreme"
+  },
+  {
+    "id": 20,
+    "body": "La rutina valida `token[0..15]` contra `0xA1B2C3D4`, calcula `HMAC-SHA256(key, payload)` y compara el digest en tiempo constante. Si `sig !== expected`, ejecuta `throw new Error(\"AUTH_0x401\")`; si coincide, continúa con `decrypt()` y `commit()`.",
+    "characterCount": 245,
+    "characterCountWithoutSpaces": 215,
+    "difficulty": "extreme"
+  }
+]

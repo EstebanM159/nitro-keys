@@ -4,6 +4,7 @@ import { CardComponent } from './components/card.component/card.component';
 import { TextRunnerComponent } from './components/TextRunnerComponent/TextRunnerComponent';
 import { StopWatchService } from '@services/stopWatchService.service';
 import { Router } from '@angular/router';
+import { TextRunnerService } from '@services/textRunner.service';
 
 @Component({
   selector: 'race-page',
@@ -17,14 +18,14 @@ export default class RacePage {
   private router = inject(Router);
 
   stopwatchService = inject(StopWatchService);
-  currentCharacterToBar = signal(0);
+  textRunnerService = inject(TextRunnerService);
 
   barWidthStyle = computed(() => {
     const text = this.stopwatchService.text();
     if (!text) return 'width: 0%';
 
     const widthP = Math.min(
-      (this.currentCharacterToBar() / text.characterCount) * 100,
+      (this.textRunnerService.currentCharacter() / text.characterCount) * 100,
       100,
     ).toFixed(0);
     return `width: ${widthP}%`;

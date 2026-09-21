@@ -10,53 +10,17 @@
       </div>
 
       <ul class="space-y-2" aria-label="Niveles de dificultad">
-        @for (
-          difficulty of [
-            {
-              id: 'easy',
-              number: '01',
-              title: 'Fácil // Cadete',
-              description: 'Palabras comunes, sin símbolos ni mayúsculas complejas.',
-              cpm: '50',
-              color: 'text-white',
-            },
-            {
-              id: 'normal',
-              number: '02',
-              title: 'Normal // Habitual',
-              description: 'Puntuación balanceada, jerga digital y ritmo constante.',
-              cpm: '95',
-              color: 'text-white',
-            },
-            {
-              id: 'hard',
-              number: '03',
-              title: 'Difícil // Hazlo',
-              description: 'Cadenas de código, símbolos y palabras técnicas exigentes.',
-              cpm: '140',
-              color: 'text-primary',
-            },
-            {
-              id: 'extreme',
-              number: '04',
-              title: 'Extremo // Pesadilla',
-              description: 'Hexadecimal, sintaxis sin error y velocidad máxima.',
-              cpm: '190+',
-              color: 'text-[#ff9da2]',
-            },
-          ];
-          track difficulty.id
-        ) {
+        @for (difficulty of info; track difficulty.id) {
           <li>
             <button
               type="button"
               class="group w-full rounded-xl border border-white/5 bg-background-light px-3 py-3 text-left transition-colors hover:border-primary/60"
-              [class.border-primary]="selectedDifficulty() === difficulty.id"
+              [class.!border-primary]="selectedDifficulty() === difficulty.id"
               [class.shadow-[0_0_10px_rgba(226,236,0,0.35)]]="
                 selectedDifficulty() === difficulty.id
               "
               [attr.aria-pressed]="selectedDifficulty() === difficulty.id"
-              (click)="selectDifficulty(difficulty.id)"
+              (click)="cambiarTexto($any(difficulty.id))"
             >
               <div class="flex items-start gap-3">
                 <span class="pt-0.5 text-base font-bold" [class]="difficulty.color">{{
