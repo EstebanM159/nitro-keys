@@ -1,4 +1,4 @@
-import { computed, HostListener, inject, Injectable, output, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { StopWatchService } from '@services/stopWatchService.service';
 
 @Injectable({

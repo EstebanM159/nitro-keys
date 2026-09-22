@@ -20,6 +20,6 @@ export class FinishRace {
 
   backToLobby() {
     this.stopwatchService.reset();
-    this.router.navigate(['/race/lobby']);
+    this.router.navigate(['/race']);
   }
 }

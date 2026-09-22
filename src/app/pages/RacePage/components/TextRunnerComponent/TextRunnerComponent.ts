@@ -20,7 +20,7 @@ export class TextRunnerComponent implements OnInit {
     this.textRunnerService.reinitialize();
   }
   @HostListener('window:keydown', ['$event'])
-  asd(e: KeyboardEvent) {
+  onKeydown(e: KeyboardEvent) {
     this.textRunnerService.onKey(e);
   }
 }

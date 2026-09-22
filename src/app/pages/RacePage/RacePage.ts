@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { CardComponent } from './components/card.component/card.component';
 import { TextRunnerComponent } from './components/TextRunnerComponent/TextRunnerComponent';
@@ -19,7 +19,7 @@ export default class RacePage {
 
   stopwatchService = inject(StopWatchService);
   textRunnerService = inject(TextRunnerService);
-
+  gameOver = effect(() => this.isGameOver(this.textRunnerService.endTheGame()));
   barWidthStyle = computed(() => {
     const text = this.stopwatchService.text();
     if (!text) return 'width: 0%';

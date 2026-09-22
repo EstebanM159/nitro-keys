@@ -1,6 +1,6 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { TextRunnerComponent } from '../RacePage/components/TextRunnerComponent/TextRunnerComponent';
-import { TextsService } from '@services/texts.service';
+
 import { StopWatchService } from '@services/stopWatchService.service';
 import type { Difficult } from 'src/app/interfaces/Text.interface';
 import { TextRunnerService } from '@services/textRunner.service';
