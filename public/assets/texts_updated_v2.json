@@ -106,37 +106,37 @@
   },
   {
     "id": 16,
-    "body": "Configura `0x7F` como máscara base y transforma `0x2A` mediante `&`, `|` y `^`. Luego verifica `buffer[0] === 0xFF` antes de ejecutar `parse()`. Si `crc32(data) !== expected`, aborta el flujo y registra `ERR_0xA1`.",
-    "characterCount": 214,
-    "characterCountWithoutSpaces": 183,
+    "body": "Configura 0x7F como máscara base y transforma 0x2A mediante &, | y ^. Luego verifica buffer[0] === 0xFF antes de ejecutar parse(). Si crc32(data) !== expected, aborta el flujo y registra ERR_0xA1.",
+    "characterCount": 196,
+    "characterCountWithoutSpaces": 165,
     "difficulty": "extreme"
   },
   {
     "id": 17,
-    "body": "Ejecuta `git reset --hard HEAD~1` después de validar `SHA256(commit) == 0x9F2A...C71D`. El parser espera `{ id: 0x1A, flags: 0x0F }`; cualquier byte fuera de rango dispara `throw new Error(\"INVALID_BYTE\")` y detiene el proceso.",
-    "characterCount": 227,
-    "characterCountWithoutSpaces": 195,
+    "body": "Ejecuta git reset --hard HEAD~1 después de validar SHA256(commit) == 0x9F2A...C71D. El parser espera { id: 0x1A, flags: 0x0F }; cualquier byte fuera de rango dispara throw new Error(\"INVALID_BYTE\") y detiene el proceso.",
+    "characterCount": 219,
+    "characterCountWithoutSpaces": 187,
     "difficulty": "extreme"
   },
   {
     "id": 18,
-    "body": "El protocolo recibe `0x7E 0x01 0xFF 0x00` y calcula `CRC16(frame)`. Si `(flags & 0x04) !== 0`, aplica `decode(payload)` y valida `length === 0x20`; de lo contrario ejecuta `return -1`. Un solo bit incorrecto invalida la trama.",
-    "characterCount": 226,
-    "characterCountWithoutSpaces": 191,
+    "body": "El protocolo recibe 0x7E 0x01 0xFF 0x00 y calcula CRC16(frame). Si (flags & 0x04) !== 0, aplica decode(payload) y valida length === 0x20; de lo contrario ejecuta return -1. Un solo bit incorrecto invalida la trama.",
+    "characterCount": 214,
+    "characterCountWithoutSpaces": 179,
     "difficulty": "extreme"
   },
   {
     "id": 19,
-    "body": "En `0x0040` comienza el bloque de memoria y `0x00FF` define el límite. Ejecuta `ptr += 0x04`, comprueba `(ptr & 0x03) == 0`, y aplica `memcpy(dst, src, 0x20)`. Si `checksum != 0xA7C3`, revierte la transacción y devuelve `0xDEAD`.",
-    "characterCount": 229,
-    "characterCountWithoutSpaces": 193,
+    "body": "En 0x0040 comienza el bloque de memoria y 0x00FF define el límite. Ejecuta ptr += 0x04, comprueba (ptr & 0x03) == 0, y aplica memcpy(dst, src, 0x20). Si checksum != 0xA7C3, revierte la transacción y devuelve 0xDEAD.",
+    "characterCount": 215,
+    "characterCountWithoutSpaces": 179,
     "difficulty": "extreme"
   },
   {
     "id": 20,
-    "body": "La rutina valida `token[0..15]` contra `0xA1B2C3D4`, calcula `HMAC-SHA256(key, payload)` y compara el digest en tiempo constante. Si `sig !== expected`, ejecuta `throw new Error(\"AUTH_0x401\")`; si coincide, continúa con `decrypt()` y `commit()`.",
-    "characterCount": 245,
-    "characterCountWithoutSpaces": 215,
+    "body": "La rutina valida token[0..15] contra 0xA1B2C3D4, calcula HMAC-SHA256(key, payload) y compara el digest en tiempo constante. Si sig !== expected, ejecuta throw new Error(\"AUTH_0x401\"); si coincide, continúa con decrypt() y commit().",
+    "characterCount": 231,
+    "characterCountWithoutSpaces": 201,
     "difficulty": "extreme"
   }
 ]

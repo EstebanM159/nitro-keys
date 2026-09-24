@@ -40,7 +40,6 @@ export class TextRunnerService {
     e.preventDefault();
 
     this.stopwatchService.start();
-
     if (e.key === 'Backspace') {
       if (this.errors() !== null) {
         this.errors.set(null);
@@ -72,6 +71,7 @@ export class TextRunnerService {
 
   private isValidKey(event: KeyboardEvent): boolean {
     const { key } = event;
+    console.log('Tecla valida', key);
     return (
       key.length === 1 ||
       key === 'Backspace' ||
