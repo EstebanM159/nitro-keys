@@ -22,6 +22,8 @@ export default class RacePage implements OnInit {
   gameOver = effect(() => this.isGameOver(this.textRunnerService.endTheGame()));
   ngOnInit(): void {
     this.stopwatchService.newText();
+    // limpia el estado de una carrera/práctica anterior antes de que corra el effect
+    this.textRunnerService.reinitialize();
   }
   barWidthStyle = computed(() => {
     const text = this.stopwatchService.text();
