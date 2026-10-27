@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { StopWatchService } from '@services/stopWatchService.service';
+import { TextRunnerService } from '@services/textRunner.service';
 
 @Component({
   selector: 'app-finish-race',
@@ -10,6 +11,7 @@ import { StopWatchService } from '@services/stopWatchService.service';
 })
 export class FinishRace {
   stopwatchService = inject(StopWatchService);
+  textRunnerService = inject(TextRunnerService);
   private router = inject(Router);
 
   retryRace() {
@@ -19,6 +21,7 @@ export class FinishRace {
   }
 
   backToLobby() {
+    this.textRunnerService.reinitialize();
     this.stopwatchService.reset();
     this.router.navigate(['/race']);
   }

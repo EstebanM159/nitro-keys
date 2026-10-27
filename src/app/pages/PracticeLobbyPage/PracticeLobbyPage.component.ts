@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { TextRunnerComponent } from '../RacePage/components/TextRunnerComponent/TextRunnerComponent';
 
 import { StopWatchService } from '@services/stopWatchService.service';
@@ -10,7 +10,7 @@ import { TextRunnerService } from '@services/textRunner.service';
   imports: [TextRunnerComponent],
   templateUrl: './PracticeLobbyPage.component.html',
 })
-export default class PracticeLobbyPageComponent {
+export default class PracticeLobbyPageComponent implements OnInit {
   info = [
     {
       id: 'easy',
@@ -45,9 +45,12 @@ export default class PracticeLobbyPageComponent {
       color: 'text-[#ff9da2]',
     },
   ];
-  selectedDifficulty = signal('hard');
+  selectedDifficulty = signal<Difficult>('easy');
   stopWatchService = inject(StopWatchService);
   textRunnerService = inject(TextRunnerService);
+  ngOnInit() {
+    this.stopWatchService.newTextByDifficulty(this.selectedDifficulty());
+  }
   cambiarTexto(dificultad: Difficult) {
     this.selectedDifficulty.set(dificultad);
     this.textRunnerService.reinitialize();

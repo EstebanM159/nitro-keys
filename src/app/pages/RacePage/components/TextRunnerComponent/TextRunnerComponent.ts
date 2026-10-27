@@ -16,7 +16,6 @@ export class TextRunnerComponent implements OnInit {
   textRunnerService = inject(TextRunnerService);
   stopWatchService = inject(StopWatchService);
   ngOnInit(): void {
-    this.stopWatchService.newText();
     this.textRunnerService.reinitialize();
   }
   @HostListener('window:keydown', ['$event'])

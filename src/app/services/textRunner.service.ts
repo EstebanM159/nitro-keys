@@ -86,5 +86,6 @@ export class TextRunnerService {
     this.stopwatchService.reset();
     this.currentCharacter.set(0);
     this.errors.set(null);
+    this.endTheGame.set(false);
   }
 }

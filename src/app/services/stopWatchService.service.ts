@@ -21,10 +21,6 @@ export class StopWatchService {
   correctCharacters = signal<number>(0);
   text = signal<TextInterface | null>(null);
   // ! Esto se arregla con rxResource
-  constructor() {
-    this.newText();
-  }
-  // text = signal<string>('la toma ha sido completada');
 
   start() {
     if (!this.isRunning()) {

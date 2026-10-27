@@ -14,14 +14,18 @@ import { TextRunnerService } from '@services/textRunner.service';
     class: 'bg-background-light w-full flex flex-col items-center py-10',
   },
 })
-export default class RacePage {
+export default class RacePage implements OnInit {
   private router = inject(Router);
 
   stopwatchService = inject(StopWatchService);
   textRunnerService = inject(TextRunnerService);
   gameOver = effect(() => this.isGameOver(this.textRunnerService.endTheGame()));
+  ngOnInit(): void {
+    this.stopwatchService.newText();
+  }
   barWidthStyle = computed(() => {
     const text = this.stopwatchService.text();
+    console.log(text?.difficulty);
     if (!text) return 'width: 0%';
 
     const widthP = Math.min(
