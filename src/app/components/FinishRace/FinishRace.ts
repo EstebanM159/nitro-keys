@@ -16,7 +16,6 @@ export class FinishRace {
 
   retryRace() {
     this.stopwatchService.reset();
-    this.stopwatchService.newText();
     this.router.navigate(['/race']);
   }
 

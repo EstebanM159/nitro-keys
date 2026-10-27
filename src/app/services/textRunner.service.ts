@@ -1,6 +1,9 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { StopWatchService } from '@services/stopWatchService.service';
 
+// Estas teclas solo "preparan" otra (ej: AltGr + 2 = @), no son acierto ni error.
+const MODIFIER_KEYS = ['Shift', 'Control', 'AltGraph'];
+
 @Injectable({
   providedIn: 'root',
 })
@@ -50,14 +53,17 @@ export class TextRunnerService {
       return;
     }
 
+    if (MODIFIER_KEYS.includes(e.key)) return;
+
     const isBackquote = e.code === 'Backquote' && (e.key === '`' || e.key === 'Dead');
     const isCorrect = e.key === this.nextChar() || (isBackquote && this.nextChar() === '`');
     if (isCorrect) {
+      // con un error sin borrar, ni la tecla correcta avanza: hay que borrar primero
+      if (this.errors() !== null) return;
       this.currentCharacter.update((c) => c + 1);
-      this.errors.set(null);
       this.stopwatchService.registerCorrectKeystroke();
-    } else if (e.key !== 'Shift') {
-      // el usuario no podra escribir mas de 3 caracteres erroneos
+    } else {
+      // cada tecla incorrecta se marca y se sigue contando para el accuracy
       this.errors.set(this.currentCharacter());
       this.stopwatchService.registerError();
     }
