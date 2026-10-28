@@ -21,13 +21,16 @@ export default class RacePage implements OnInit {
   textRunnerService = inject(TextRunnerService);
   gameOver = effect(() => this.isGameOver(this.textRunnerService.endTheGame()));
   ngOnInit(): void {
-    this.stopwatchService.newText();
+    const keepText = this.textRunnerService.keepTextOnNextRace() && !!this.stopwatchService.text();
+    this.textRunnerService.keepTextOnNextRace.set(false);
+    if (!keepText) this.stopwatchService.newText();
     // limpia el estado de una carrera/práctica anterior antes de que corra el effect
     this.textRunnerService.reinitialize();
+    // limpia el estado de una carrera/práctica anterior antes de que corra el effect
   }
   barWidthStyle = computed(() => {
     const text = this.stopwatchService.text();
-    console.log(text?.difficulty);
+
     if (!text) return 'width: 0%';
 
     const widthP = Math.min(

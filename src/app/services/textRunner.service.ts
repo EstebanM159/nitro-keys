@@ -31,6 +31,7 @@ export class TextRunnerService {
   currentCharacter = signal(0);
   errors = signal<number | null>(null);
   endTheGame = signal<boolean>(false);
+  keepTextOnNextRace = signal<boolean>(false);
   nextChar = computed<string>(() => this.text()!.body[this.currentCharacter()]);
   endText = computed(() => this.currentCharacter() === this.text()!.body.length);
 
